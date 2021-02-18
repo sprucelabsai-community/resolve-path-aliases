@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+yarn.lock
+
+# Built files
+coverage/
+__TEST__/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+*.tmp.ts
+build/
+package-lock.json
+
+tmp/
