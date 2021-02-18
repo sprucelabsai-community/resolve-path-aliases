@@ -9,6 +9,10 @@
 	"bin": {
 		"resolve-path-aliases": "./build/resolve-path-aliases.js"
 	},
+	"files": [
+		"build/index.js",
+		"build/resolve-path-aliases.js"
+	],
 	"scripts": {
 		"build": "npm run clean && npm run build.tsc && yarn copy-for-tests",
 		"build.tsc": "tsc",
