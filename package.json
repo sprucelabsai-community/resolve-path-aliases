@@ -3,7 +3,7 @@
 	"version": "4.0.1",
 	"description": "Script that resolves paths from your tsconfig",
 	"main": "build/index.js",
-	"repository": "git@github.com:sprucelabsai/babel-plugin-schema.git",
+	"repository": "git@github.com:sprucelabsai/resolve-path-aliases.git",
 	"author": "Spruce Labs",
 	"license": "MIT",
 	"bin": {

@@ -257,7 +257,7 @@ export default class SchemaBuildsAndMapsPathsTest extends AbstractSpruceTest {
 
 		const cwd = this.resolvePath(
 			os.tmpdir(),
-			'babel-plugin-schema',
+			'resolve-path-aliases',
 			`${today.getTime()}`
 		)
 
