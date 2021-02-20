@@ -42,7 +42,7 @@
 		"@types/fs-extra": "^9.0.2",
 		"@types/rimraf": "^3.0.0",
 		"chokidar-cli": "^2.1.0",
-		"concurrently": "^5.3.0",
+		"concurrently": "^6.0.0",
 		"eslint": "^7.11.0",
 		"eslint-config-spruce": "^10.9.91",
 		"fs-extra": "^9.1.0",
