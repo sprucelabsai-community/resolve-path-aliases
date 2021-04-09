@@ -49,7 +49,7 @@ const results = resolvePathAliases(cwd, {
 if (results.totalMappedPaths === 0) {
 	console.log(
 		chalk.green.bold(
-			'Done! No paths to map. Maybe mapping was already done? Try building your code again.'
+			'Done! No paths to map.'
 		)
 	)
 } else {
