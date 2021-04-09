@@ -47,11 +47,7 @@ const results = resolvePathAliases(cwd, {
 })
 
 if (results.totalMappedPaths === 0) {
-	console.log(
-		chalk.green.bold(
-			'Done! No paths to map.'
-		)
-	)
+	console.log(chalk.green.bold('Done! No paths to map.'))
 } else {
 	console.log(
 		chalk.green.bold(
