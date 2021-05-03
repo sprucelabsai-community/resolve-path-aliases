@@ -45,7 +45,7 @@
 		"concurrently": "^6.0.0",
 		"eslint": "^7.11.0",
 		"eslint-config-spruce": "^10.10.0",
-		"fs-extra": "^9.1.0",
+		"fs-extra": "^10.0.0",
 		"jest": "^26.5.3",
 		"prettier": "^2.1.2",
 		"rimraf": "^3.0.2",
