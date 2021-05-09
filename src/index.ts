@@ -27,9 +27,7 @@ const logLive = {
 	error: (...message: string[]) => console.log(chalk.red(...message)),
 }
 
-function buildResolvers(
-	destination: string
-): {
+function buildResolvers(destination: string): {
 	outResolver: MatchPath | undefined
 	srcResolver: MatchPath
 } {
