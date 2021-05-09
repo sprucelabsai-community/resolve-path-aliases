@@ -17,8 +17,7 @@ const argv = yargs.options({
 	},
 	absoluteOrRelative: {
 		valid: '',
-		desc:
-			'Should paths resolve relatively or absolutely, valid values are `absolute` or `relative`.',
+		desc: 'Should paths resolve relatively or absolutely, valid values are `absolute` or `relative`.',
 	},
 }).argv
 
