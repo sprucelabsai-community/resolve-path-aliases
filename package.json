@@ -39,7 +39,7 @@
 	"dependencies": {
 		"chalk": "^4.1.1",
 		"globby": "^11.0.4",
-		"tsconfig-paths": "^3.10.0",
+		"tsconfig-paths": "^3.10.1",
 		"yargs": "^17.0.1"
 	},
 	"devDependencies": {
