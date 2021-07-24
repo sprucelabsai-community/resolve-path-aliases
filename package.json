@@ -74,5 +74,10 @@
 		"moduleNameMapper": {
 			"^#spruce/(.*)$": "<rootDir>/build/.spruce/$1"
 		}
+	},
+	"yarn-upgrade-all": {
+		"ignore": [
+			"globby"
+		]
 	}
 }
