@@ -17,7 +17,6 @@
 		"build.dev": "npm run clean && npm run build.tsc --sourceMap && yarn copy-for-tests",
 		"build.dist": "npm run clean && npm run build.tsc && yarn copy-for-tests",
 		"build.tsc": "tsc",
-		"build.watch": "concurrently 'tsc -w' 'chokidar \"src/__tests__/files/*\" -c yarn copy-for-tests'",
 		"clean": "yarn clean.build",
 		"clean.all": "yarn clean.dependencies && yarn clean.build",
 		"clean.build": "rm -rf build/",
@@ -35,7 +34,9 @@
 		"update.dependencies": "yarn clean.dependencies && yarn",
 		"upgrade.packages": "yarn-upgrade-all && rm -f yarn.lock ; yarn ; yarn fix.lint | true",
 		"upgrade.packages.all": "yarn install && yarn upgrade.packages",
-		"upgrade.packages.test": "yarn upgrade.packages.all && yarn lint && yarn build.dev && yarn test"
+		"upgrade.packages.test": "yarn upgrade.packages.all && yarn lint && yarn build.dev && yarn test",
+		"watch.build.dev": "concurrently 'tsc -w --sourceMap' 'chokidar \"src/__tests__/files/*\" -c yarn copy-for-tests'"
+
 	},
 	"dependencies": {
 		"chalk": "^4.1.2",
