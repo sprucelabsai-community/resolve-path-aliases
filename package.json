@@ -14,6 +14,7 @@
 		"build/resolve-path-aliases.js"
 	],
 	"scripts": {
+		"preinstall": "git config core.hooksPath .githooks",
 		"build.dev": "npm run clean && npm run build.tsc --sourceMap && yarn copy-for-tests",
 		"build.dist": "npm run clean && npm run build.tsc && yarn copy-for-tests",
 		"build.tsc": "tsc",
