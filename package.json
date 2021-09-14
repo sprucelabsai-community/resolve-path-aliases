@@ -6,6 +6,14 @@
   "repository": "git@github.com:sprucelabsai/resolve-path-aliases.git",
   "author": "Spruce Labs",
   "license": "MIT",
+  "skill": {
+    "namespace": "resolve-path-aliases",
+    "upgradeIgnoreList": [
+      "globby",
+      "@sprucelabs/resolve-path-aliases",
+      "@types/node"
+    ]
+  },
   "bin": {
     "resolve-path-aliases": "./build/resolve-path-aliases.js"
   },
@@ -14,8 +22,11 @@
     "build/resolve-path-aliases.js"
   ],
   "scripts": {
+    "build.ci": "yarn build.tsc && yarn copy-for-tests",
+    "build.copy-files": "true",
     "build.dev": "npm run clean && npm run build.tsc --sourceMap && yarn copy-for-tests",
     "build.dist": "npm run clean && npm run build.tsc && yarn copy-for-tests",
+    "build.resolve-paths": "true",
     "build.tsc": "tsc",
     "clean": "yarn clean.build",
     "clean.all": "yarn clean.dependencies && yarn clean.build",
@@ -24,19 +35,24 @@
     "copy-for-tests": "yarn copy-test-files",
     "copy-test-empty-skill": "rm -rf ./build/__tests__/empty_skill && mkdirp ./build/__tests__/empty_skill",
     "copy-test-files": "rm -rf ./build/__tests__/files && mkdirp ./build/__tests__/files && cp -r ./src/__tests__/files/* ./build/__tests__/files",
-    "lint": "eslint --cache '**/*.ts' && tsc -p . --noEmit",
-    "fix.lint": "eslint --fix '**/*.ts'",
+    "lint": "eslint --cache '**/*.ts'",
+    "lint.tsc": "tsc -p . --noEmit",
+    "fix.lint": "eslint --fix --cache '**/*.ts'",
     "lint.watch": "chokidar 'src/**/*' '../spruce-templates/src/**' -c 'yarn lint.tsc'",
+    "post.watch.build": "yarn copy-for-tests",
     "rebuild": "yarn clean.all && yarn && yarn build.dev",
     "release": "semantic-release",
+    "resolve-paths.lint": "yarn build.resolve-paths ; yarn lint",
     "test": "jest",
     "test.watch": "jest --watch",
     "update.dependencies": "yarn clean.dependencies && yarn",
     "upgrade.packages": "yarn-upgrade-all && rm -f yarn.lock ; yarn ; yarn fix.lint | true",
     "upgrade.packages.all": "yarn install && yarn upgrade.packages",
     "upgrade.packages.test": "yarn upgrade.packages.all && yarn lint && yarn build.dev && yarn test",
-    "post.watch.build": "yarn copy-for-tests",
-    "watch.build.dev": "tsc-watch --sourceMap --onCompilationComplete 'yarn post.watch.build'"
+    "watch.build.dev": "tsc-watch --sourceMap --onCompilationComplete 'yarn post.watch.build'",
+    "watch.lint": "concurrently 'yarn lint' \"chokidar 'src/**/*' -c 'yarn lint.tsc'\"",
+    "watch.rebuild": "yarn clean.all && yarn && yarn watch.build.dev",
+    "watch.tsc": "tsc -w"
   },
   "dependencies": {
     "chalk": "^4.1.2",
@@ -50,6 +66,7 @@
     "@types/fs-extra": "^9.0.12",
     "@types/rimraf": "^3.0.2",
     "chokidar-cli": "^3.0.0",
+    "concurrently": "^6.2.1",
     "eslint": "^7.32.0",
     "eslint-config-spruce": "^10.10.10",
     "fs-extra": "^10.0.0",
@@ -57,8 +74,7 @@
     "prettier": "^2.4.0",
     "rimraf": "^3.0.2",
     "tsc-watch": "^4.5.0",
-    "typescript": "^4.4.3",
-    "yarn-upgrade-all": "^0.5.4"
+    "typescript": "^4.4.3"
   },
   "jest": {
     "maxWorkers": 4,
@@ -76,10 +92,5 @@
     "moduleNameMapper": {
       "^#spruce/(.*)$": "<rootDir>/build/.spruce/$1"
     }
-  },
-  "yarn-upgrade-all": {
-    "ignore": [
-      "globby"
-    ]
   }
 }
