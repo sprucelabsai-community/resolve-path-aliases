@@ -58,7 +58,7 @@
     "chalk": "^4.1.2",
     "globby": "^11.0.4",
     "tsconfig-paths": "^3.11.0",
-    "yargs": "^17.1.1"
+    "yargs": "^17.2.0"
   },
   "devDependencies": {
     "@sprucelabs/semantic-release": "^4.0.7",
