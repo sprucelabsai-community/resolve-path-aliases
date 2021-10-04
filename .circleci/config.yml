@@ -91,7 +91,7 @@ jobs:
               echo "No modifications detected.  No push/PR necessary 👊"
               circleci-agent step halt
             fi
-        - run:
+      - run:
           name: "Check for only newline or @sprucelabs/test diff"
           command: |
             if [[ $(git status --porcelain | awk '{print $2}' | wc -l) -eq 1 ]]; then
