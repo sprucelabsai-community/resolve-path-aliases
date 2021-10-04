@@ -91,12 +91,17 @@ jobs:
               echo "No modifications detected.  No push/PR necessary 👊"
               circleci-agent step halt
             fi
-      - run:
-          name: "Check for only newline diff"
+        - run:
+          name: "Check for only newline or @sprucelabs/test diff"
           command: |
             if [[ $(git status --porcelain | awk '{print $2}' | wc -l) -eq 1 ]]; then
               if [[ $(git status --porcelain | awk '{print $2}' | grep package.json | wc -l ) -eq 1 ]]; then
                 if [[ $(git diff -w package.json | wc -l) -eq 0 ]]; then
+                  echo "Only change was a new line to package.json skipping PR"
+                  circleci-agent step halt
+                fi
+                if [[ $(git diff -w package.json |grep '^\+\s' |grep -v @sprucelabs/test | wc -l) -eq 0 ]]; then
+                  echo "Only test packages were updated, skipping PR"
                   circleci-agent step halt
                 fi
               fi
