@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@sprucelabs/semantic-release": "^4.0.7",
-    "@sprucelabs/test": "^7.7.192",
+    "@sprucelabs/test": "^7.7.197",
     "@types/fs-extra": "^9.0.13",
     "@types/rimraf": "^3.0.2",
     "chokidar-cli": "^3.0.0",
@@ -70,7 +70,7 @@
     "eslint": "^8.0.1",
     "eslint-config-spruce": "^10.10.15",
     "fs-extra": "^10.0.0",
-    "jest": "^27.2.5",
+    "jest": "^27.3.0",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.3.0",
