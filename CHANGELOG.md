@@ -1,3 +1,19 @@
+## [1.0.215](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.214...v1.0.215) (2021-10-19)
+
+## [1.0.214](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.213...v1.0.214) (2021-10-17)
+
+## [1.0.213](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.212...v1.0.213) (2021-10-14)
+
+## [1.0.212](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.211...v1.0.212) (2021-10-12)
+
+## [1.0.211](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.210...v1.0.211) (2021-10-12)
+
+## [1.0.210](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.209...v1.0.210) (2021-10-12)
+
+## [1.0.209](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.208...v1.0.209) (2021-10-08)
+
+## [1.0.208](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.207...v1.0.208) (2021-10-04)
+
 ## [1.0.207](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.206...v1.0.207) (2021-10-04)
 
 ## [1.0.206](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.205...v1.0.206) (2021-10-04)
