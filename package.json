@@ -61,8 +61,8 @@
     "yargs": "^17.2.1"
   },
   "devDependencies": {
-    "@sprucelabs/semantic-release": "^4.0.7",
-    "@sprucelabs/test": "^7.7.198",
+    "@sprucelabs/semantic-release": "^4.0.8",
+    "@sprucelabs/test": "^7.7.201",
     "@types/fs-extra": "^9.0.13",
     "@types/rimraf": "^3.0.2",
     "chokidar-cli": "^3.0.0",
