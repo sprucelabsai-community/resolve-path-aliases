@@ -9,6 +9,7 @@
   "skill": {
     "namespace": "resolve-path-aliases",
     "upgradeIgnoreList": [
+      "chalk",
       "globby",
       "@sprucelabs/resolve-path-aliases",
       "@types/node"
