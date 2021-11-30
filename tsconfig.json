@@ -4,6 +4,7 @@
 		"esModuleInterop": true,
 		"target": "ES2017",
 		"lib": [
+			"DOM",
 			"es2017",
 			"ES2020"
 		],
@@ -32,8 +33,6 @@
 		"./src/.spruce/**/*"
 	],
 	"exclude": [
-		"build",
-		"src/__tests__/empty_skill",
-		"src/__tests__/files"
+		"build"
 	]
 }
