@@ -23,7 +23,7 @@
     "build/resolve-path-aliases.js"
   ],
   "scripts": {
-    "build.ci": "yarn build.tsc && yarn copy-for-tests",
+    "build.ci": "yarn build.tsc && yarn copy-for-tests && yarn lint",
     "build.copy-files": "true",
     "build.dev": "npm run clean && npm run build.tsc --sourceMap && yarn copy-for-tests",
     "build.dist": "npm run clean && npm run build.tsc && yarn copy-for-tests",
