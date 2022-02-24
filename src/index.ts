@@ -75,7 +75,7 @@ export function resolvePathAliases(
 		let found = false
 
 		contents = `${contents}`.replace(
-			/(from |import |require\()['"](#spruce\/(.*?))['"]/gi,
+			/(from |import |import\(|require\()['"](#spruce\/(.*?))['"]/gi,
 			(_, requireOrImport, match) => {
 				found = true
 				const search = match

@@ -9,6 +9,8 @@ import skill from '#spruce/schemas/fields/fields.types'
 import skill2 from '#spruce/schemas/fields/fields.types'
 
 import '#spruce/schemas/fields/fields.types'
+//@ts-ignore
+import('#spruce/schemas/fields/fields.types')
 
 require('#spruce/schemas/fields/fields.types')
 require('#spruce/schemas/fields/fields.types')

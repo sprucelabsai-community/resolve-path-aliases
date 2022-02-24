@@ -9,6 +9,8 @@ import skill from "./../node_modules/@sprucelabs/schema/build/.spruce/schemas/fi
 import skill2 from "./../node_modules/@sprucelabs/schema/build/.spruce/schemas/fields/fields.types"
 
 import "./../node_modules/@sprucelabs/schema/build/.spruce/schemas/fields/fields.types"
+//@ts-ignore
+import("./../node_modules/@sprucelabs/schema/build/.spruce/schemas/fields/fields.types")
 
 require("./../node_modules/@sprucelabs/schema/build/.spruce/schemas/fields/fields.types")
 require("./../node_modules/@sprucelabs/schema/build/.spruce/schemas/fields/fields.types")
