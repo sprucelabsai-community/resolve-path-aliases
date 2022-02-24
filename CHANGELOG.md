@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.261...v1.1.0) (2022-02-24)
+
+
+### Features
+
+* now supports import() notation ([5db9ff8](https://github.com/sprucelabsai/resolve-path-aliases/commit/5db9ff8))
+
 ## [1.0.261](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.260...v1.0.261) (2022-02-22)
 
 ## [1.0.260](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.0.259...v1.0.260) (2022-02-12)
