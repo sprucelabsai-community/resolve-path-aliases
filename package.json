@@ -70,7 +70,7 @@
     "concurrently": "^7.1.0",
     "eslint": "^8.13.0",
     "eslint-config-spruce": "^10.11.2",
-    "fs-extra": "^10.0.1",
+    "fs-extra": "^10.1.0",
     "jest": "^27.5.1",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
