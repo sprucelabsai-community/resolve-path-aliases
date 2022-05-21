@@ -1,3 +1,5 @@
+## [1.1.47](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.1.46...v1.1.47) (2022-05-21)
+
 ## [1.1.46](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.1.45...v1.1.46) (2022-05-21)
 
 ## [1.1.45](https://github.com/sprucelabsai/resolve-path-aliases/compare/v1.1.44...v1.1.45) (2022-05-17)
