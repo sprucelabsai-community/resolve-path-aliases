@@ -12,8 +12,7 @@
       "chalk",
       "globby",
       "@sprucelabs/resolve-path-aliases",
-      "@types/node",
-      "typescript"
+      "@types/node"
     ]
   },
   "bin": {
