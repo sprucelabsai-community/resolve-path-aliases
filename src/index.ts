@@ -47,7 +47,8 @@ function buildResolvers(destination: string): {
 
 export function resolvePathAliases(
 	destination: string,
-	options: IResolvePathAliasOptions = {}
+	options: IResolvePathAliasOptions = {},
+	globUtil: typeof globby = globby
 ) {
 	let { outResolver, srcResolver } = buildResolvers(destination)
 
@@ -61,8 +62,8 @@ export function resolvePathAliases(
 	let totalMappedPaths = 0
 	let totalFilesWithMappedPaths = 0
 
-	const files = globby.sync(
-		patterns.map((pattern) => pathUtil.join(destination, '/', pattern)),
+	const files = globUtil.sync(
+		patterns.map((pattern) => pathUtil.posix.join(destination, '/', pattern)),
 		{
 			dot: true,
 		}
