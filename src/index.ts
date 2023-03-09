@@ -8,6 +8,7 @@ import {
 	loadConfig,
 	MatchPath,
 } from 'tsconfig-paths'
+import posixPath from './posixPath'
 
 export interface IResolvePathAliasOptions {
 	patterns?: string[]
@@ -64,10 +65,7 @@ export function resolvePathAliases(
 
 	const files = globUtil.sync(
 		patterns.map((pattern) =>
-			pathUtil.posix
-				.join(destination, '/', pattern)
-				.split(pathUtil.sep)
-				.join(pathUtil.posix.sep)
+			posixPath(pathUtil.posix.join(destination, '/', pattern))
 		),
 		{
 			dot: true,
@@ -107,7 +105,7 @@ export function resolvePathAliases(
 					absoluteOrRelative === 'relative'
 						? './' + pathUtil.relative(pathUtil.dirname(file), resolved)
 						: resolved
-				return `${requireOrImport}"${relative}"`
+				return posixPath(`${requireOrImport}"${relative}"`)
 			}
 		)
 
