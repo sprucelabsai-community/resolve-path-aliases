@@ -27,6 +27,7 @@ const { patterns, target, absoluteOrRelative, verbose } = argv as {
 	absoluteOrRelative?: 'relative' | 'absolute'
 	verbose?: boolean
 }
+
 const cwd =
 	target && target[0] === pathUtil.sep
 		? target
@@ -41,7 +42,7 @@ console.log(
 )
 const results = resolvePathAliases(cwd, {
 	absoluteOrRelative,
-	patterns: patterns ? patterns.split(',') : undefined,
+	patterns: patterns ? patterns.replace(/'/g, '').split(',') : undefined,
 	beVerbose: verbose,
 })
 

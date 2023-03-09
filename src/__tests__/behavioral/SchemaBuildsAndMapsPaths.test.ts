@@ -2,7 +2,7 @@ import { exec } from 'child_process'
 import fs from 'fs'
 import os from 'os'
 import pathUtil from 'path'
-import AbstractSpruceTest, { test, assert } from '@sprucelabs/test'
+import AbstractSpruceTest, { assert, test } from '@sprucelabs/test'
 import fsUtil from 'fs-extra'
 import rimraf from 'rimraf'
 import { IResolvePathAliasOptions, resolvePathAliases } from '../../index'
@@ -13,65 +13,6 @@ function copyAssert(truthy: any, message: string) {
 	if (!truthy) {
 		throw new Error(message)
 	}
-}
-
-export interface PluginOptions {
-	cwd: string
-	destination: string
-	shouldResolvePathAliases?: boolean
-	resolveOptions?: IResolvePathAliasOptions
-}
-
-function copy(options: PluginOptions) {
-	copyAssert(
-		options.cwd,
-		"You must pass options.cwd. This is where I'll look for the schema module (root of workspace if in monorepo)"
-	)
-	copyAssert(
-		options.destination,
-		'You need to pass a options.destination (sub project if mono repo)'
-	)
-
-	const destination = ensureDirsAndResolveDestination(options)
-
-	if (options.shouldResolvePathAliases !== false) {
-		resolvePathAliases(destination, options.resolveOptions)
-	}
-}
-
-function ensureDirsAndResolveDestination(options: PluginOptions) {
-	const target = pathUtil.join(
-		options.cwd,
-		'node_modules',
-		'@sprucelabs',
-		'schema'
-	)
-
-	const destination = pathUtil.join(
-		options.destination,
-		'node_modules',
-		'@sprucelabs',
-		'schema'
-	)
-
-	const schemaNodeModules = pathUtil.join(destination, 'node_modules')
-
-	// clear out destination if it exists (and does not match the target)
-	if (target !== destination) {
-		if (fs.existsSync(destination)) {
-			rimraf.sync(schemaNodeModules)
-		}
-
-		// copy schema over
-		fsUtil.copySync(target, destination)
-	}
-
-	// clear out schemas' node_modules
-	if (fs.existsSync(schemaNodeModules)) {
-		rimraf.sync(schemaNodeModules)
-	}
-
-	return pathUtil.join(destination, 'build')
 }
 
 export default class SchemaBuildsAndMapsPathsTest extends AbstractSpruceTest {
@@ -203,11 +144,15 @@ export default class SchemaBuildsAndMapsPathsTest extends AbstractSpruceTest {
 		},
 		'absolute-paths.ts'
 	)
-	protected static async testVariousMatches(
-		importFileName: string,
-		options: IResolvePathAliasOptions & { useCommandLine?: boolean } = {},
+	protected static async testVariousMatches({
+		importFileName,
+		options = {},
+		expectedFileMatch,
+	}: {
+		importFileName: string
+		options: IResolvePathAliasOptions & { useCommandLine?: boolean }
 		expectedFileMatch: string
-	) {
+	}) {
 		const cwd = await this.setupNewPackage()
 
 		const importFileTarget = this.resolvePath(
@@ -306,4 +251,63 @@ export default class SchemaBuildsAndMapsPathsTest extends AbstractSpruceTest {
 			)
 		})
 	}
+}
+
+export interface PluginOptions {
+	cwd: string
+	destination: string
+	shouldResolvePathAliases?: boolean
+	resolveOptions?: IResolvePathAliasOptions
+}
+
+function copy(options: PluginOptions) {
+	copyAssert(
+		options.cwd,
+		"You must pass options.cwd. This is where I'll look for the schema module (root of workspace if in monorepo)"
+	)
+	copyAssert(
+		options.destination,
+		'You need to pass a options.destination (sub project if mono repo)'
+	)
+
+	const destination = ensureDirsAndResolveDestination(options)
+
+	if (options.shouldResolvePathAliases !== false) {
+		resolvePathAliases(destination, options.resolveOptions)
+	}
+}
+
+function ensureDirsAndResolveDestination(options: PluginOptions) {
+	const target = pathUtil.join(
+		options.cwd,
+		'node_modules',
+		'@sprucelabs',
+		'schema'
+	)
+
+	const destination = pathUtil.join(
+		options.destination,
+		'node_modules',
+		'@sprucelabs',
+		'schema'
+	)
+
+	const schemaNodeModules = pathUtil.join(destination, 'node_modules')
+
+	// clear out destination if it exists (and does not match the target)
+	if (target !== destination) {
+		if (fs.existsSync(destination)) {
+			rimraf.sync(schemaNodeModules)
+		}
+
+		// copy schema over
+		fsUtil.copySync(target, destination)
+	}
+
+	// clear out schemas' node_modules
+	if (fs.existsSync(schemaNodeModules)) {
+		rimraf.sync(schemaNodeModules)
+	}
+
+	return pathUtil.join(destination, 'build')
 }
