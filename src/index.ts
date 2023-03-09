@@ -63,7 +63,12 @@ export function resolvePathAliases(
 	let totalFilesWithMappedPaths = 0
 
 	const files = globUtil.sync(
-		patterns.map((pattern) => pathUtil.posix.join(destination, '/', pattern)),
+		patterns.map((pattern) =>
+			pathUtil.posix
+				.join(destination, '/', pattern)
+				.split(pathUtil.sep)
+				.join(pathUtil.posix.sep)
+		),
 		{
 			dot: true,
 		}
