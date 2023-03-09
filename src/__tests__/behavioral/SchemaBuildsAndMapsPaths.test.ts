@@ -144,15 +144,11 @@ export default class SchemaBuildsAndMapsPathsTest extends AbstractSpruceTest {
 		},
 		'absolute-paths.ts'
 	)
-	protected static async testVariousMatches({
-		importFileName,
+	protected static async testVariousMatches(
+		importFileName: string,
 		options = {},
-		expectedFileMatch,
-	}: {
-		importFileName: string
-		options: IResolvePathAliasOptions & { useCommandLine?: boolean }
 		expectedFileMatch: string
-	}) {
+	) {
 		const cwd = await this.setupNewPackage()
 
 		const importFileTarget = this.resolvePath(
@@ -163,6 +159,7 @@ export default class SchemaBuildsAndMapsPathsTest extends AbstractSpruceTest {
 		)
 
 		const importFileContents = fsUtil.readFileSync(importFileTarget)
+
 		const destination = this.resolvePath(cwd, 'src', importFileName)
 
 		fsUtil.ensureDirSync(pathUtil.dirname(destination))
