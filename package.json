@@ -1,98 +1,98 @@
 {
-	"name": "@sprucelabs/resolve-path-aliases",
-	"version": "1.1.192",
-	"description": "Script that resolves paths from your tsconfig",
-	"main": "build/index.js",
-	"repository": "git@github.com:sprucelabsai/resolve-path-aliases.git",
-	"author": "Spruce Labs",
-	"license": "MIT",
-	"skill": {
-		"namespace": "resolve-path-aliases",
-		"upgradeIgnoreList": [
-			"chalk",
-			"globby",
-			"@sprucelabs/resolve-path-aliases",
-			"@types/node"
-		]
-	},
-	"bin": {
-		"resolve-path-aliases": "./build/resolve-path-aliases.js"
-	},
-	"files": [
-		"build/index.js",
-		"build/resolve-path-aliases.js",
-		"build/posixPath.js"
-	],
-	"scripts": {
-		"build.ci": "yarn build.tsc && yarn copy-for-tests && yarn lint",
-		"build.copy-files": "true",
-		"build.dev": "npm run clean && npm run build.tsc --sourceMap && yarn copy-for-tests",
-		"build.dist": "npm run clean && npm run build.tsc && yarn copy-for-tests",
-		"build.resolve-paths": "true",
-		"build.tsc": "tsc",
-		"clean": "yarn clean.build",
-		"clean.all": "yarn clean.dependencies && yarn clean.build",
-		"clean.build": "rm -rf build/",
-		"clean.dependencies": "rm -rf node_modules/ package-lock.json yarn.lock",
-		"copy-for-tests": "yarn copy-test-files",
-		"copy-test-empty-skill": "rm -rf ./build/__tests__/empty_skill && mkdirp ./build/__tests__/empty_skill",
-		"copy-test-files": "rm -rf ./build/__tests__/files && mkdirp ./build/__tests__/files && cp -r ./src/__tests__/files/* ./build/__tests__/files",
-		"lint": "eslint --cache '**/*.ts'",
-		"lint.tsc": "tsc -p . --noEmit",
-		"fix.lint": "eslint --fix --cache '**/*.ts'",
-		"lint.watch": "chokidar 'src/**/*' '../spruce-templates/src/**' -c 'yarn lint.tsc'",
-		"post.watch.build": "yarn copy-for-tests",
-		"rebuild": "yarn clean.all && yarn && yarn build.dev",
-		"release": "semantic-release",
-		"resolve-paths.lint": "yarn build.resolve-paths ; yarn lint",
-		"test": "jest",
-		"test.watch": "jest --watch",
-		"update.dependencies": "yarn clean.dependencies && yarn",
-		"upgrade.packages": "yarn-upgrade-all && rm -f yarn.lock ; yarn ; yarn fix.lint | true",
-		"upgrade.packages.all": "yarn install && yarn upgrade.packages",
-		"upgrade.packages.test": "yarn upgrade.packages.all && yarn lint && yarn build.dev && yarn test",
-		"watch.build.dev": "tsc-watch --sourceMap --onCompilationComplete 'yarn post.watch.build'",
-		"watch.lint": "concurrently 'yarn lint' \"chokidar 'src/**/*' -c 'yarn lint.tsc'\"",
-		"watch.rebuild": "yarn clean.all && yarn && yarn watch.build.dev",
-		"watch.tsc": "tsc -w"
-	},
-	"dependencies": {
-		"chalk": "^4.1.2",
-		"globby": "^11.0.4",
-		"tsconfig-paths": "^4.1.2",
-		"yargs": "^17.7.1"
-	},
-	"devDependencies": {
-		"@sprucelabs/semantic-release": "^4.0.8",
-		"@sprucelabs/test": "^7.7.424",
-		"@types/fs-extra": "^11.0.1",
-		"chokidar-cli": "^3.0.0",
-		"concurrently": "^7.6.0",
-		"eslint": "^8.35.0",
-		"eslint-config-spruce": "^10.12.0",
-		"fs-extra": "^11.1.0",
-		"jest": "^29.5.0",
-		"prettier": "^2.8.4",
-		"rimraf": "^4.4.0",
-		"ts-node": "^10.9.1",
-		"tsc-watch": "^6.0.0",
-		"typescript": "^4.9.5"
-	},
-	"jest": {
-		"maxWorkers": 4,
-		"testTimeout": 120000,
-		"testEnvironment": "node",
-		"testPathIgnorePatterns": [
-			"<rootDir>/tmp/",
-			"<rootDir>/src/",
-			"<rootDir>/node_modules/",
-			"<rootDir>/build/__tests__/testDirsAndFiles/"
-		],
-		"testMatch": [
-			"**/__tests__/**/*.test.js?(x)"
-		],
-		"moduleNameMapper": {
-			"^#spruce/(.*)$": "<rootDir>/build/.spruce/$1"
-		}
-	}
+  "name": "@sprucelabs/resolve-path-aliases",
+  "version": "1.1.192",
+  "description": "Script that resolves paths from your tsconfig",
+  "main": "build/index.js",
+  "repository": "git@github.com:sprucelabsai/resolve-path-aliases.git",
+  "author": "Spruce Labs",
+  "license": "MIT",
+  "skill": {
+    "namespace": "resolve-path-aliases",
+    "upgradeIgnoreList": [
+      "chalk",
+      "globby",
+      "@sprucelabs/resolve-path-aliases",
+      "@types/node"
+    ]
+  },
+  "bin": {
+    "resolve-path-aliases": "./build/resolve-path-aliases.js"
+  },
+  "files": [
+    "build/index.js",
+    "build/resolve-path-aliases.js",
+    "build/posixPath.js"
+  ],
+  "scripts": {
+    "build.ci": "yarn build.tsc && yarn copy-for-tests && yarn lint",
+    "build.copy-files": "true",
+    "build.dev": "npm run clean && npm run build.tsc --sourceMap && yarn copy-for-tests",
+    "build.dist": "npm run clean && npm run build.tsc && yarn copy-for-tests",
+    "build.resolve-paths": "true",
+    "build.tsc": "tsc",
+    "clean": "yarn clean.build",
+    "clean.all": "yarn clean.dependencies && yarn clean.build",
+    "clean.build": "rm -rf build/",
+    "clean.dependencies": "rm -rf node_modules/ package-lock.json yarn.lock",
+    "copy-for-tests": "yarn copy-test-files",
+    "copy-test-empty-skill": "rm -rf ./build/__tests__/empty_skill && mkdirp ./build/__tests__/empty_skill",
+    "copy-test-files": "rm -rf ./build/__tests__/files && mkdirp ./build/__tests__/files && cp -r ./src/__tests__/files/* ./build/__tests__/files",
+    "lint": "eslint --cache '**/*.ts'",
+    "lint.tsc": "tsc -p . --noEmit",
+    "fix.lint": "eslint --fix --cache '**/*.ts'",
+    "lint.watch": "chokidar 'src/**/*' '../spruce-templates/src/**' -c 'yarn lint.tsc'",
+    "post.watch.build": "yarn copy-for-tests",
+    "rebuild": "yarn clean.all && yarn && yarn build.dev",
+    "release": "semantic-release",
+    "resolve-paths.lint": "yarn build.resolve-paths ; yarn lint",
+    "test": "jest",
+    "test.watch": "jest --watch",
+    "update.dependencies": "yarn clean.dependencies && yarn",
+    "upgrade.packages": "yarn-upgrade-all && rm -f yarn.lock ; yarn ; yarn fix.lint | true",
+    "upgrade.packages.all": "yarn install && yarn upgrade.packages",
+    "upgrade.packages.test": "yarn upgrade.packages.all && yarn lint && yarn build.dev && yarn test",
+    "watch.build.dev": "tsc-watch --sourceMap --onCompilationComplete 'yarn post.watch.build'",
+    "watch.lint": "concurrently 'yarn lint' \"chokidar 'src/**/*' -c 'yarn lint.tsc'\"",
+    "watch.rebuild": "yarn clean.all && yarn && yarn watch.build.dev",
+    "watch.tsc": "tsc -w"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "globby": "^11.0.4",
+    "tsconfig-paths": "^4.1.2",
+    "yargs": "^17.7.1"
+  },
+  "devDependencies": {
+    "@sprucelabs/semantic-release": "^4.0.8",
+    "@sprucelabs/test": "^7.7.425",
+    "@types/fs-extra": "^11.0.1",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.36.0",
+    "eslint-config-spruce": "^10.12.0",
+    "fs-extra": "^11.1.0",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.4",
+    "rimraf": "^4.4.0",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^6.0.0",
+    "typescript": "^4.9.5"
+  },
+  "jest": {
+    "maxWorkers": 4,
+    "testTimeout": 120000,
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "<rootDir>/tmp/",
+      "<rootDir>/src/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/build/__tests__/testDirsAndFiles/"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.test.js?(x)"
+    ],
+    "moduleNameMapper": {
+      "^#spruce/(.*)$": "<rootDir>/build/.spruce/$1"
+    }
+  }
 }
