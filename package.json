@@ -59,12 +59,12 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "globby": "^11.0.4",
-    "tsconfig-paths": "^4.1.2",
+    "tsconfig-paths": "^4.2.0",
     "yargs": "^17.7.1"
   },
   "devDependencies": {
     "@sprucelabs/semantic-release": "^4.0.8",
-    "@sprucelabs/test": "^7.7.435",
+    "@sprucelabs/test": "^7.7.436",
     "@types/fs-extra": "^11.0.1",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.0.1",
