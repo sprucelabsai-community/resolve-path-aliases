@@ -11,6 +11,7 @@
     "upgradeIgnoreList": [
       "chalk",
       "globby",
+      "rimraf",
       "@sprucelabs/resolve-path-aliases",
       "@types/node"
     ]
