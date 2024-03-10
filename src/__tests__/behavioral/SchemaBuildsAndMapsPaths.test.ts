@@ -4,7 +4,7 @@ import os from 'os'
 import pathUtil from 'path'
 import AbstractSpruceTest, { assert, test } from '@sprucelabs/test'
 import fsUtil from 'fs-extra'
-import rimraf from 'rimraf'
+import { rimraf } from 'rimraf'
 import { IResolvePathAliasOptions, resolvePathAliases } from '../../index'
 
 const isDebug = false && process.debugPort > 0
