@@ -63,7 +63,7 @@
   },
   "devDependencies": {
     "@sprucelabs/semantic-release": "^4.0.8",
-    "@sprucelabs/test": "^8.0.44",
+    "@sprucelabs/test": "^8.0.45",
     "@types/fs-extra": "^11.0.4",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.2.2",
@@ -75,7 +75,7 @@
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
     "tsc-watch": "^6.0.4",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.3"
   },
   "jest": {
     "maxWorkers": 4,
