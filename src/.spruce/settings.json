@@ -2,7 +2,8 @@
   "writer": {
     "skipped": [
       ".eslintignore",
-      ".nvmrc"
+      ".nvmrc",
+      ".gitignore"
     ],
     "skips": [
       "src/index.ts"

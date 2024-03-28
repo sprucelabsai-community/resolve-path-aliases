@@ -56,14 +56,14 @@
     "watch.tsc": "tsc -w"
   },
   "dependencies": {
-    "@sprucelabs/globby": "^1.0.22",
+    "@sprucelabs/globby": "^1.0.24",
     "chalk": "^4.1.2",
     "tsconfig-paths": "^4.2.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@sprucelabs/semantic-release": "^4.0.8",
-    "@sprucelabs/test": "^8.0.47",
+    "@sprucelabs/test": "^8.0.48",
     "@types/fs-extra": "^11.0.4",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.2.2",
@@ -74,7 +74,7 @@
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
-    "tsc-watch": "^6.1.0",
+    "tsc-watch": "^6.2.0",
     "typescript": "^5.4.3"
   },
   "jest": {

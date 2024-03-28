@@ -20,3 +20,5 @@ package-lock.json
 tmp/
 .eslintcache
 .DS_Store
+
+**/.spruce/*cache.json
