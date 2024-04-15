@@ -5,7 +5,7 @@ export default buildEsLintConfig({
 		'build/**',
 		'esm/**',
 		'node_modules/**',
-		'src/__tests__/empty_skill',
-		'src/__tests__/files',
+		'src/__tests__/empty_skill/**',
+		'src/__tests__/files/**',
 	]
 })
