@@ -19,5 +19,8 @@
       "post.watch.build"
     ],
     "skips": []
-  }
+  },
+  "skipped": [
+    "skill"
+  ]
 }

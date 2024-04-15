@@ -1,5 +1,7 @@
+/* eslint-disable spruce/prefer-spruce-hash-import */
+/* eslint-disable spruce/prohibit-import-from-build-folder */
 /* eslint-disable prettier/prettier */
- 
+/* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 //@ts-ignore
 import skill from '#spruce/schemas/fields/fields.types'

@@ -1,3 +1,11 @@
-import eslintConfigSpruce from 'eslint-config-spruce'
+import { buildEsLintConfig } from 'eslint-config-spruce'
 
-export default eslintConfigSpruce
+export default buildEsLintConfig({
+	exludes: [
+		'build',
+		'esm',
+		'node_modules',
+		'src/__tests__/empty_skill',
+		'src/__tests__/files',
+	]
+})
