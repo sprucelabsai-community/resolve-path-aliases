@@ -1,3 +1,10 @@
+# [2.0.0](https://github.com/sprucelabsai-community/resolve-path-aliases/compare/v1.1.304...v2.0.0) (2024-04-15)
+
+
+### Breaking Changes
+
+* upgrade ([fe43d6e](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/fe43d6e))
+
 ## [1.1.304](https://github.com/sprucelabsai-community/resolve-path-aliases/compare/v1.1.303...v1.1.304) (2024-04-04)
 
 ## [1.1.303](https://github.com/sprucelabsai-community/resolve-path-aliases/compare/v1.1.302...v1.1.303) (2024-04-01)
