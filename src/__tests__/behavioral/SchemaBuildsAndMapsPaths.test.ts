@@ -5,7 +5,8 @@ import pathUtil from 'path'
 import AbstractSpruceTest, { assert, test } from '@sprucelabs/test'
 import fsUtil from 'fs-extra'
 import { rimraf } from 'rimraf'
-import { IResolvePathAliasOptions, resolvePathAliases } from '../../index'
+import { resolvePathAliases } from '../../index'
+import { ResolvePathAliasOptions } from '../../PathResolve'
 
 const isDebug = false && process.debugPort > 0
 
@@ -40,7 +41,7 @@ export default class SchemaBuildsAndMapsPathsTest extends AbstractSpruceTest {
 
     private static async copyAndResolvePaths(
         cwd: string,
-        options: IResolvePathAliasOptions & { useCommandLine?: boolean } = {}
+        options: ResolvePathAliasOptions & { useCommandLine?: boolean } = {}
     ) {
         const { useCommandLine = false, ...resolveOptions } = options
 
@@ -257,7 +258,7 @@ export interface PluginOptions {
     cwd: string
     destination: string
     shouldResolvePathAliases?: boolean
-    resolveOptions?: IResolvePathAliasOptions
+    resolveOptions?: ResolvePathAliasOptions
 }
 
 function copy(options: PluginOptions) {
