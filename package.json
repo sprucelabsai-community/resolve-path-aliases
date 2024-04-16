@@ -20,7 +20,8 @@
   "files": [
     "build/index.js",
     "build/resolve-path-aliases.js",
-    "build/posixPath.js"
+    "build/posixPath.js",
+		"build/PathResolver.js"
   ],
   "scripts": {
     "build.ci": "yarn build.tsc && yarn copy-for-tests && yarn lint",
