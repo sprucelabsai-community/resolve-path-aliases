@@ -99,15 +99,8 @@ export class PathResolver {
         let found = false
         const updated = `${contents}`.replace(
             /(['"]?).*?(from |import |import\(|require\()['"](#spruce\/(.*?))['"]/gi,
-            (
-                possibleMatchWithQuote,
-                _,
-                requireOrImport,
-                match,
-                offset,
-                fullstring,
-                next
-            ) => {
+            //@ts-ignore
+            (possibleMatchWithQuote, _, requireOrImport, match) => {
                 if (possibleMatchWithQuote.trim().startsWith('"')) {
                     return
                 }
@@ -141,13 +134,10 @@ export class PathResolver {
                         ? './' + pathUtil.relative(directoryPath, resolved)
                         : resolved
 
-                const results = posixPath(`${requireOrImport}"${relative}"`)
                 const replaced = possibleMatchWithQuote.replace(
                     search,
                     posixPath(relative)
                 )
-
-                debugger
 
                 this.totalMappedPaths++
 
