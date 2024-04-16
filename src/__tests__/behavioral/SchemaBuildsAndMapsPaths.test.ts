@@ -6,7 +6,7 @@ import AbstractSpruceTest, { assert, test } from '@sprucelabs/test'
 import fsUtil from 'fs-extra'
 import { rimraf } from 'rimraf'
 import { resolvePathAliases } from '../../index'
-import { ResolvePathAliasOptions } from '../../PathResolve'
+import { ResolvePathAliasOptions } from '../../PathResolver'
 
 const isDebug = false && process.debugPort > 0
 
@@ -37,69 +37,6 @@ export default class SchemaBuildsAndMapsPathsTest extends AbstractSpruceTest {
         }
 
         this.testDirsToDelete = []
-    }
-
-    private static async copyAndResolvePaths(
-        cwd: string,
-        options: ResolvePathAliasOptions & { useCommandLine?: boolean } = {}
-    ) {
-        const { useCommandLine = false, ...resolveOptions } = options
-
-        copy({
-            cwd,
-            destination: cwd,
-            shouldResolvePathAliases: !options.useCommandLine,
-            resolveOptions,
-        })
-
-        const schemaPath = this.resolvePath(
-            cwd,
-            'node_modules',
-            '@sprucelabs',
-            'schema'
-        )
-
-        const srcPath = this.resolvePath(cwd, 'src')
-        const srcExists = fsUtil.existsSync(srcPath)
-
-        if (useCommandLine) {
-            const promise1 = this.resolvePathAliasesUsingCommandLine(
-                schemaPath,
-                resolveOptions
-            )
-            const promise2 = srcExists
-                ? this.resolvePathAliasesUsingCommandLine(
-                      srcPath,
-                      resolveOptions
-                  )
-                : Promise.resolve(undefined)
-
-            await Promise.all([promise1, promise2])
-        } else {
-            resolvePathAliases(schemaPath, resolveOptions)
-            srcExists && resolvePathAliases(srcPath, resolveOptions)
-        }
-    }
-
-    private static async resolvePathAliasesUsingCommandLine(
-        cwd: string,
-        resolveOptions: {
-            patterns?: string[] | undefined
-            absoluteOrRelative?: 'absolute' | 'relative' | undefined
-        }
-    ) {
-        const fullOptions = { target: cwd, ...resolveOptions }
-
-        const args = Object.keys(fullOptions).reduce((args, key) => {
-            args += ` --${key} ${fullOptions[key as keyof typeof fullOptions]}`
-            return args
-        }, '')
-
-        const command = `node${
-            isDebug ? ' --inspect-brk=9230' : ''
-        } ${this.resolvePath('build', 'resolve-path-aliases.js')} ./ ${args}`
-
-        await this.executeCommand(cwd, command)
     }
 
     @test(
@@ -186,6 +123,69 @@ export default class SchemaBuildsAndMapsPathsTest extends AbstractSpruceTest {
             .replace(/{{cwd}}/gis, cwd)
 
         assert.isEqual(updatedContents.trim(), expectedContents.trim())
+    }
+
+    private static async copyAndResolvePaths(
+        cwd: string,
+        options: ResolvePathAliasOptions & { useCommandLine?: boolean } = {}
+    ) {
+        const { useCommandLine = false, ...resolveOptions } = options
+
+        copy({
+            cwd,
+            destination: cwd,
+            shouldResolvePathAliases: !options.useCommandLine,
+            resolveOptions,
+        })
+
+        const schemaPath = this.resolvePath(
+            cwd,
+            'node_modules',
+            '@sprucelabs',
+            'schema'
+        )
+
+        const srcPath = this.resolvePath(cwd, 'src')
+        const srcExists = fsUtil.existsSync(srcPath)
+
+        if (useCommandLine) {
+            const promise1 = this.resolvePathAliasesUsingCommandLine(
+                schemaPath,
+                resolveOptions
+            )
+            const promise2 = srcExists
+                ? this.resolvePathAliasesUsingCommandLine(
+                      srcPath,
+                      resolveOptions
+                  )
+                : Promise.resolve(undefined)
+
+            await Promise.all([promise1, promise2])
+        } else {
+            resolvePathAliases(schemaPath, resolveOptions)
+            srcExists && resolvePathAliases(srcPath, resolveOptions)
+        }
+    }
+
+    private static async resolvePathAliasesUsingCommandLine(
+        cwd: string,
+        resolveOptions: {
+            patterns?: string[] | undefined
+            absoluteOrRelative?: 'absolute' | 'relative' | undefined
+        }
+    ) {
+        const fullOptions = { target: cwd, ...resolveOptions }
+
+        const args = Object.keys(fullOptions).reduce((args, key) => {
+            args += ` --${key} ${fullOptions[key as keyof typeof fullOptions]}`
+            return args
+        }, '')
+
+        const command = `node${
+            isDebug ? ' --inspect-brk=9230' : ''
+        } ${this.resolvePath('build', 'resolve-path-aliases.js')} ./ ${args}`
+
+        await this.executeCommand(cwd, command)
     }
 
     private static async setupNewPackage() {

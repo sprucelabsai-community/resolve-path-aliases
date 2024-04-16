@@ -1,11 +1,11 @@
 import globby from 'globby'
-import { PathResolve, ResolvePathAliasOptions } from './PathResolve'
+import { PathResolver, ResolvePathAliasOptions } from './PathResolver'
 
 export function resolvePathAliases(
     destination: string,
     options: ResolvePathAliasOptions = {},
     globUtil: typeof globby = globby
 ) {
-    const resolver = PathResolve.Resolver(globUtil)
+    const resolver = PathResolver.Resolver(globUtil)
     return resolver.resolvePathAliases(destination, options)
 }

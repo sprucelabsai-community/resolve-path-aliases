@@ -10,7 +10,8 @@ import {
 } from 'tsconfig-paths'
 import posixPath from './posixPath'
 
-export class PathResolve {
+export class PathResolver {
+    public static Class?: typeof PathResolver
     private outResolver?: MatchPath | undefined
     private srcResolver?: MatchPath | undefined
     private globby: typeof globby
@@ -18,12 +19,12 @@ export class PathResolve {
     private totalFilesWithMappedPaths = 0
     private log = logLive
 
-    private constructor(globbyUtil: typeof globby) {
+    protected constructor(globbyUtil: typeof globby) {
         this.globby = globbyUtil
     }
 
     public static Resolver(globbyUtil: typeof globby = globby) {
-        return new this(globbyUtil)
+        return new (this.Class ?? this)(globbyUtil)
     }
 
     private buildResolvers(destination: string) {
@@ -89,7 +90,7 @@ export class PathResolve {
         }
     }
 
-    private replaceHashPaths(
+    protected replaceHashPaths(
         contents: string,
         filepath: string,
         absoluteOrRelative: PathResolutionStrategies
@@ -97,8 +98,20 @@ export class PathResolve {
         const directoryPath = pathUtil.dirname(filepath)
         let found = false
         const updated = `${contents}`.replace(
-            /(from |import |import\(|require\()['"](#spruce\/(.*?))['"]/gi,
-            (_, requireOrImport, match) => {
+            /(['"]?).*?(from |import |import\(|require\()['"](#spruce\/(.*?))['"]/gi,
+            (
+                possibleMatchWithQuote,
+                _,
+                requireOrImport,
+                match,
+                offset,
+                fullstring,
+                next
+            ) => {
+                if (possibleMatchWithQuote.trim().startsWith('"')) {
+                    return
+                }
+
                 found = true
                 const search = match
                 let resolved: string | undefined
@@ -129,12 +142,19 @@ export class PathResolve {
                         : resolved
 
                 const results = posixPath(`${requireOrImport}"${relative}"`)
+                const replaced = possibleMatchWithQuote.replace(
+                    search,
+                    posixPath(relative)
+                )
+
+                debugger
 
                 this.totalMappedPaths++
 
-                return results
+                return replaced
             }
         )
+
         return { found, updated }
     }
 
@@ -192,7 +212,7 @@ export class PathResolve {
     }
 }
 
-type PathResolutionStrategies = 'relative' | 'absolute'
+export type PathResolutionStrategies = 'relative' | 'absolute'
 
 export interface ResolvePathAliasOptions {
     patterns?: string[]
