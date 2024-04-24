@@ -7,5 +7,6 @@ export default buildEsLintConfig({
 		'node_modules/**',
 		'src/__tests__/empty_skill/**',
 		'src/__tests__/files/**',
+		'**/.spruce/**'
 	]
 })
