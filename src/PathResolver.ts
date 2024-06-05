@@ -1,7 +1,7 @@
 import fs from 'fs'
 import pathUtil from 'path'
+import globby from '@sprucelabs/globby'
 import chalk from 'chalk'
-import globby from 'globby'
 import {
     ConfigLoaderSuccessResult,
     createMatchPath,
