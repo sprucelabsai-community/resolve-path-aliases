@@ -63,7 +63,7 @@
   },
   "devDependencies": {
     "@sprucelabs/semantic-release": "^5.0.1",
-    "@sprucelabs/test": "^9.0.24",
+    "@sprucelabs/test": "^9.0.25",
     "@types/fs-extra": "^11.0.4",
     "chokidar-cli": "^3.0.0",
     "eslint": "^9.4.0",
