@@ -59,8 +59,8 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@sprucelabs/semantic-release": "^5.0.1",
-    "@sprucelabs/test": "^9.0.33",
+    "@sprucelabs/semantic-release": "^5.0.2",
+    "@sprucelabs/test": "^9.0.34",
     "@types/fs-extra": "^11.0.4",
     "chokidar-cli": "^3.0.0",
     "eslint": "^9.5.0",
