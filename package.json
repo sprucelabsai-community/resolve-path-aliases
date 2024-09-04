@@ -53,7 +53,7 @@
     "watch.tsc": "tsc -w"
   },
   "dependencies": {
-    "@sprucelabs/globby": "^2.0.255",
+    "@sprucelabs/globby": "^2.0.256",
     "chalk": "^4.1.2",
     "tsconfig-paths": "^4.2.0",
     "yargs": "^17.7.2"
