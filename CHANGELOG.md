@@ -1,3 +1,5 @@
+## [2.0.320](https://github.com/sprucelabsai-community/resolve-path-aliases/compare/v2.0.319...v2.0.320) (2024-09-12)
+
 ## [2.0.319](https://github.com/sprucelabsai-community/resolve-path-aliases/compare/v2.0.318...v2.0.319) (2024-09-12)
 
 ## [2.0.318](https://github.com/sprucelabsai-community/resolve-path-aliases/compare/v2.0.317...v2.0.318) (2024-09-12)
