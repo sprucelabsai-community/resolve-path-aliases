@@ -1,6 +1,6 @@
 {
   "name": "@sprucelabs/resolve-path-aliases",
-  "version": "2.0.537",
+  "version": "2.0.538",
   "description": "Script that resolves paths from your tsconfig",
   "main": "build/index.js",
   "repository": "git@github.com:sprucelabsai-community/resolve-path-aliases.git",
