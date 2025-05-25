@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@sprucelabs/semantic-release": "^5.0.2",
-    "@sprucelabs/test": "^9.0.81",
+    "@sprucelabs/test": "^9.0.82",
     "@types/fs-extra": "^11.0.4",
     "chokidar-cli": "^3.0.0",
     "eslint": "^9.27.0",
@@ -70,7 +70,7 @@
     "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
-    "tsc-watch": "^6.3.1",
+    "tsc-watch": "^7.0.0",
     "typescript": "^5.8.3"
   },
   "jest": {
