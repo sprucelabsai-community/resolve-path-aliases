@@ -4,22 +4,24 @@ import chalk from 'chalk'
 import yargs from 'yargs'
 import { resolvePathAliases } from './index'
 
-const argv = yargs.options({
-    target: {
-        desc: "Where I'll look to begin mapping paths. Defaults to cwd.",
-    },
-    patterns: {
-        desc: 'Comma separated list of globby patterns, default to **/*.js',
-    },
-    verbose: {
-        alias: 'v',
-        desc: 'Output more information while mapping',
-    },
-    absoluteOrRelative: {
-        valid: '',
-        desc: 'Should paths resolve relatively or absolutely, valid values are `absolute` or `relative`.',
-    },
-}).argv
+const argv = yargs(process.argv.slice(2))
+    .options({
+        target: {
+            desc: "Where I'll look to begin mapping paths. Defaults to cwd.",
+        },
+        patterns: {
+            desc: 'Comma separated list of globby patterns, default to **/*.js',
+        },
+        verbose: {
+            alias: 'v',
+            desc: 'Output more information while mapping',
+        },
+        absoluteOrRelative: {
+            valid: '',
+            desc: 'Should paths resolve relatively or absolutely, valid values are `absolute` or `relative`.',
+        },
+    })
+    .parseSync()
 
 const { patterns, target, absoluteOrRelative, verbose } = argv as {
     patterns?: string
