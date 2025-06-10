@@ -1,3 +1,10 @@
+# [3.0.0](https://github.com/sprucelabsai-community/resolve-path-aliases/compare/v2.0.544...v3.0.0) (2025-06-10)
+
+
+### Breaking Changes
+
+* upgrade ([98fc28a](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/98fc28a))
+
 ## [2.0.544](https://github.com/sprucelabsai-community/resolve-path-aliases/compare/v2.0.543...v2.0.544) (2025-06-01)
 
 ## [2.0.543](https://github.com/sprucelabsai-community/resolve-path-aliases/compare/v2.0.542...v2.0.543) (2025-05-25)
