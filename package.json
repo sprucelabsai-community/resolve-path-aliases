@@ -50,7 +50,8 @@
     "update.dependencies": "yarn run clean.dependencies && yarn",
     "watch.build.dev": "tsc-watch --sourceMap --onCompilationComplete 'yarn run post.watch.build'",
     "watch.rebuild": "yarn run clean.all && yarn install && yarn run watch.build.dev",
-    "watch.tsc": "tsc -w"
+    "watch.tsc": "tsc -w",
+    "build": "yarn run build.tsc --sourceMap ; yarn run resolve-paths"
   },
   "dependencies": {
     "@sprucelabs/globby": "^2.0.505",
@@ -60,7 +61,7 @@
   },
   "devDependencies": {
     "@sprucelabs/semantic-release": "^5.0.2",
-    "@sprucelabs/test": "^10.0.4",
+    "@sprucelabs/test": "^10.0.5",
     "@types/fs-extra": "^11.0.4",
     "chokidar-cli": "^3.0.0",
     "eslint": "^9.29.0",
