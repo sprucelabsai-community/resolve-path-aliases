@@ -53,14 +53,14 @@
     "watch.tsc": "tsc -w"
   },
   "dependencies": {
-    "@sprucelabs/globby": "^2.0.506",
+    "@sprucelabs/globby": "^2.0.507",
     "chalk": "^4.1.2",
     "tsconfig-paths": "^4.2.0",
     "yargs": "^18.0.0"
   },
   "devDependencies": {
-    "@sprucelabs/semantic-release": "^5.0.2",
-    "@sprucelabs/test": "^10.0.26",
+    "@sprucelabs/semantic-release": "^5.0.3",
+    "@sprucelabs/test": "^10.0.28",
     "@types/fs-extra": "^11.0.4",
     "chokidar-cli": "^3.0.0",
     "eslint": "^9.39.1",
