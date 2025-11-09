@@ -1,3 +1,8 @@
+## <small>4.0.1 (2025-11-09)</small>
+
+* chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([455b08f](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/455b08f))
+* chore(auto-upgrade): upgraded packages [upgrade-all] ([bfe0db8](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/bfe0db8))
+
 ## 4.0.0 (2025-11-09)
 
 * patch: command fix ([e61287f](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/e61287f))
