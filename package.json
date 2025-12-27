@@ -65,7 +65,7 @@
     "chokidar-cli": "^3.0.0",
     "eslint": "^9.39.2",
     "eslint-config-spruce": "^11.2.26",
-    "fs-extra": "^11.3.2",
+    "fs-extra": "^11.3.3",
     "jest": "^30.2.0",
     "prettier": "^3.7.4",
     "rimraf": "^6.1.2",
