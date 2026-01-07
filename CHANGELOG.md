@@ -1,3 +1,8 @@
+## <small>4.0.13 (2026-01-07)</small>
+
+* chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([5b9cbb5](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/5b9cbb5))
+* chore(auto-upgrade): upgraded packages [upgrade-all] ([f12b62a](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/f12b62a))
+
 ## <small>4.0.12 (2025-12-27)</small>
 
 * chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([73b6621](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/73b6621))
