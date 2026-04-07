@@ -1,3 +1,7 @@
+## <small>4.0.26 (2026-04-07)</small>
+
+* Add ts-ignore to bare side-effect imports for TypeScript 6.0 TS2882 ([91c797e](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/91c797e))
+
 ## <small>4.0.25 (2026-04-07)</small>
 
 * Disable noUncheckedSideEffectImports for TS6 test fixture compatibility ([8e86c6f](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/8e86c6f))
