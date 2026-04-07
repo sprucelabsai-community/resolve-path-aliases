@@ -8,6 +8,7 @@ import skill from '#spruce/schemas/fields/fields.types'
 //@ts-ignore
 import skill2 from '#spruce/schemas/fields/fields.types'
 
+//@ts-ignore
 import '#spruce/schemas/fields/fields.types'
 //@ts-ignore
 import('#spruce/schemas/fields/fields.types')
