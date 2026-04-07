@@ -1,3 +1,8 @@
+## <small>4.0.25 (2026-04-07)</small>
+
+* Disable noUncheckedSideEffectImports for TS6 test fixture compatibility ([8e86c6f](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/8e86c6f))
+* Upgrade dependencies and fix TypeScript 6.0 tsconfig deprecations ([edeee97](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/edeee97))
+
 ## <small>4.0.24 (2026-03-13)</small>
 
 * chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([0804816](https://github.com/sprucelabsai-community/resolve-path-aliases/commit/0804816))
