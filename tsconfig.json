@@ -18,6 +18,7 @@
 		"resolveJsonModule": true,
 		"moduleResolution": "node",
 		"ignoreDeprecations": "6.0",
+		"noUncheckedSideEffectImports": false,
 		"sourceMap": false,
 		"outDir": "build",
 		"rootDir": "./src",
